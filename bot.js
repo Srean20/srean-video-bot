@@ -283,7 +283,7 @@ async function startDownload(chatId, state, userCaption, existingMsgId = null) {
         const originalCaption = state.videoInfo?.description || state.videoInfo?.title || '';
         if (originalCaption.trim()) {
             await bot.sendMessage(chatId,
-                `📋 *Caption:*\n${originalCaption}`,
+                `${originalCaption}`,
                 { parse_mode: 'Markdown' }
             );
         }
