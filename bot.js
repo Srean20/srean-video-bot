@@ -27,7 +27,7 @@ console.log('🤖 Bot is running...');
 const chatStates = new Map();
 
 // Credit appended to all downloads
-const CREDIT = '🎬 Credit: KimSrean Heng\n✈️ : t.me/kimsrean20';
+const CREDIT = '\n🎬 Created: KimSrean Heng\n✈️ Contact: t.me/kimsrean20';
 
 // ─── /start ───────────────────────────────────────────────────────────────────
 bot.onText(/\/start/, (msg) => {
@@ -36,8 +36,7 @@ bot.onText(/\/start/, (msg) => {
         `👋 Hello, *${name}*! I'm your Video Downloader Bot.\n\n` +
         `Just paste a video link and I'll:\n` +
         `1️⃣ Show available quality options\n` +
-        `2️⃣ Ask if you want to add a caption\n` +
-        `3️⃣ Send you the video 🎬\n\n` +
+        `2️⃣ Send you the video 🎬\n\n` +
         `Supported:\n` +
         `▶️ YouTube  |  🎵 TikTok  |  📘 Facebook`,
         { parse_mode: 'Markdown' }
@@ -50,8 +49,7 @@ bot.onText(/\/help/, (msg) => {
         `📖 *How to use:*\n\n` +
         `1. Send a YouTube, TikTok, or Facebook video URL\n` +
         `2. Pick your preferred quality from the list\n` +
-        `3. Choose whether to add a custom caption\n` +
-        `4. Receive your video! 🎉\n\n` +
+        `3. Receive your video! 🎉\n\n` +
         `⚠️ *Max file size:* 50 MB (Telegram limit)\n` +
         `🔓 Only public videos are supported`,
         { parse_mode: 'Markdown' }
