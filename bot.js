@@ -267,15 +267,22 @@ async function startDownload(chatId, state, userCaption, existingMsgId = null) {
         cleanup = result.cleanup;
 
         // Update status
-        bot.editMessageText('📤 Download complete! Sending video...',
+        const mediaType = result.type === 'audio' ? 'audio' : 'video';
+        bot.editMessageText(`📤 Download complete! Sending ${mediaType}...`,
             { chat_id: chatId, message_id: statusMsgId }
         ).catch(() => { });
 
-        // Send video with caption (credit only)
-        await bot.sendVideo(chatId, result.filePath, {
-            caption: CREDIT,
-            supports_streaming: true,
-        });
+        // Send media with caption (credit only)
+        if (result.type === 'audio') {
+            await bot.sendAudio(chatId, result.filePath, {
+                caption: CREDIT,
+            });
+        } else {
+            await bot.sendVideo(chatId, result.filePath, {
+                caption: CREDIT,
+                supports_streaming: true,
+            });
+        }
 
         // Send the original video caption as a separate copyable message
         const originalCaption = state.videoInfo?.description || state.videoInfo?.title || '';
