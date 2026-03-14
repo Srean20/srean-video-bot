@@ -109,7 +109,6 @@ async function getFormats(url) {
     }
 
     const options = [
-        { index: 0, selector: 'full', label: '🏆 Full Video' },
         { index: 1, selector: 'mp4', label: '🎥 MP4' },
         { index: 2, selector: 'mp3', label: '🎵 MP3' },
     ];
